@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>麦梯周计划 提交页面</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .total {
+            border: 1px solid #daba86;
+            padding: 15px;
+            margin-top:15px;
+        }
+        #little{
+            margin-top:15px;
+            margin-bottom: 15px;
+        }
+        #submit{
+            float: right;
+        }
+        .date{
+            margin-top: 15px;
+        }
+    </style>
+    <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center"> 麦梯定制</h2>
+    <h3 class="text-center">周计划</h3>
+    <h4 class="text-left">2016年度</h4>
+    <div class="row total">
+        <form name="child" action="post.php" method="post"onSubmit="return myCheck()">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <label for="department">部门:</label>
+                <select id="department" name="department">
+                    <option value="IT部门">IT部门</option>
+                    <option value="市场部">市场部</option>
+                    <option value="设计部">设计部</option>
+                    <option value="产品组">产品组</option>
+                    <option value="销售部">销售部</option>
+                </select>
+            </div>
+
+            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                <textarea class="form-control" rows="5" placeholder="周报内容。" id="little" name="little"></textarea>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 date">
+                    <label for="principal">负责人：</label>
+                    <input type="text" placeholder="负责人" id="principal" name="principal"onchange="checkField(this.value)">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 date">
+                    <label for="participant">相关人：</label>
+                    <input type="text" placeholder="相关人" id="participant" name="participant">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 date">
+                    <label for="time">完成时间：</label>
+                    <input type="text"  name="time" id="time">
+                </div>
+            </div>
+            <button class=" btn btn-primary text-center" id="submit" type="submit">提交</button>
+        </form>
+    </div>
+</div>
+
+</body>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+    function today(){
+        var today=new Date();
+        var h=today.getFullYear();
+        var m=today.getMonth()+1;
+        var d=today.getDate();
+        return h+"-"+m+"-"+d;
+    }
+    document.getElementById("time").value = today();
+</script>
+
+
+
+</html>
